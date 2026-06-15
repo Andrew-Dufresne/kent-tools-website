@@ -58,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
           alert('Thank you! Your inquiry has been sent. We will reply within 12 hours.');
           contactForm.reset();
         } else {
-          alert('Please contact us directly:\nEmail: kent@gezhi.group\nWhatsApp: +995 593 583 830');
+          alert('Please contact us directly:\nContact: Kent Zou\nEmail: kent@gezhi.group\nWhatsApp: +995 593 583 830');
         }
       })
       .catch(() => {
-        alert('Please contact us directly:\nEmail: kent@gezhi.group\nWhatsApp: +995 593 583 830');
+        alert('Please contact us directly:\nContact: Kent Zou\nEmail: kent@gezhi.group\nWhatsApp: +995 593 583 830');
       })
       .finally(() => {
         btn.textContent = originalText;
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>
       <a href="mailto:kent@gezhi.group" class="floating-btn floating-email" aria-label="Send Email">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span class="floating-tooltip">Email</span>
+        <span class="floating-tooltip">Email Kent</span>
       </a>
     </div>
   `;
