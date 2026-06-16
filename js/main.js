@@ -230,3 +230,31 @@ function initCarousels() {
     }
   });
 }
+
+/* ============================================================
+   Custom Language Switcher (Google Translate)
+   ============================================================ */
+(function() {
+  var select = document.getElementById('lang-switcher');
+  if (!select) return;
+
+  // Detect current language from cookie
+  function getCurrentLang() {
+    var m = document.cookie.match(/googtrans=\/en\/([a-z-]+)/);
+    return m ? m[1] : 'en';
+  }
+
+  // Show currently active language
+  var current = getCurrentLang();
+  if (current && select.querySelector('option[value="' + current + '"]')) {
+    select.value = current;
+  }
+
+  select.addEventListener('change', function() {
+    var lang = this.value;
+    var d = new Date();
+    d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+    document.cookie = 'googtrans=/en/' + lang + ';expires=' + d.toUTCString() + ';path=/';
+    window.location.reload();
+  });
+})();
