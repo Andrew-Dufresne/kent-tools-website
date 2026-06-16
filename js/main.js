@@ -2,6 +2,31 @@
    Kent Tools - Main JavaScript
    ============================================================ */
 
+/* --- Aggressively kill Google Translate banner (runs immediately) --- */
+(function killGoogleBanner() {
+  function removeBanner() {
+    var frames = document.querySelectorAll('.goog-te-banner-frame, iframe[id*="google"], body > .skiptranslate');
+    frames.forEach(function(f) {
+      if (f.parentNode && f.tagName === 'IFRAME') f.parentNode.removeChild(f);
+      else f.style.display = 'none';
+    });
+    if (document.body && document.body.style.top && document.body.style.top !== '0px') {
+      document.body.style.top = '0px';
+    }
+  }
+  removeBanner();
+  var count = 0;
+  var interval = setInterval(function() {
+    removeBanner();
+    if (++count > 50) clearInterval(interval);
+  }, 100);
+  document.addEventListener('DOMContentLoaded', function() {
+    var obs = new MutationObserver(removeBanner);
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+    setTimeout(function() { obs.disconnect(); }, 10000);
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- Mobile Nav Toggle ---
@@ -255,6 +280,21 @@ function initCarousels() {
     var d = new Date();
     d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
     document.cookie = 'googtrans=/en/' + lang + ';expires=' + d.toUTCString() + ';path=/';
+
+    // Try to trigger translation without reload (avoids banner flash)
+    var combo = document.querySelector('.goog-te-combo');
+    if (combo) {
+      combo.value = lang;
+      combo.dispatchEvent(new Event('change'));
+      return;
+    }
+
+    // Fallback: hash-based (triggers Google to translate on load)
+    if (lang === 'en') {
+      window.location.hash = 'googtrans(en|en)';
+    } else {
+      window.location.hash = 'googtrans(en|' + lang + ')';
+    }
     window.location.reload();
   });
 })();
