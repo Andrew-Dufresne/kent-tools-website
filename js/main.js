@@ -2,32 +2,6 @@
    Kent Tools - Main JavaScript
    ============================================================ */
 
-/* --- Kill Google Translate banner only (NOT translation content) --- */
-(function killGoogleBanner() {
-  function removeBanner() {
-    // ONLY target the banner frame — never touch .skiptranslate or translation iframes
-    var frames = document.querySelectorAll('.goog-te-banner-frame, iframe.goog-te-banner-frame');
-    frames.forEach(function(f) {
-      if (f.parentNode) f.parentNode.removeChild(f);
-    });
-    // Fix body offset caused by banner
-    if (document.body && document.body.style.top && document.body.style.top !== '0px') {
-      document.body.style.top = '0px';
-    }
-  }
-  removeBanner();
-  var count = 0;
-  var interval = setInterval(function() {
-    removeBanner();
-    if (++count > 60) clearInterval(interval);
-  }, 200);
-  document.addEventListener('DOMContentLoaded', function() {
-    var obs = new MutationObserver(removeBanner);
-    obs.observe(document.documentElement, { childList: true, subtree: true });
-    setTimeout(function() { obs.disconnect(); }, 15000);
-  });
-})();
-
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- Mobile Nav Toggle ---
@@ -258,19 +232,21 @@ function initCarousels() {
 }
 
 /* ============================================================
-   Custom Language Switcher (Google Translate via hash)
+   Language Switcher — Google Translation Proxy
    ============================================================ */
 (function() {
   var select = document.getElementById('lang-switcher');
   if (!select) return;
 
-  // Detect current language from URL hash
+  // Detect current language from translate.goog URL
   function getCurrentLang() {
-    var m = window.location.hash.match(/googtrans\(en\|([a-z-]+)\)/);
-    return m ? m[1] : 'en';
+    if (window.location.host.indexOf('.translate.goog') > -1) {
+      var m = window.location.search.match(/_x_tr_tl=([a-z-]+)/);
+      if (m) return m[1];
+    }
+    return 'en';
   }
 
-  // Show currently active language in dropdown
   var current = getCurrentLang();
   if (current && select.querySelector('option[value="' + current + '"]')) {
     select.value = current;
@@ -278,13 +254,15 @@ function initCarousels() {
 
   select.addEventListener('change', function() {
     var lang = this.value;
+    var host = window.location.host.replace(/\.translate\.goog$/, '').replace(/-/g, '.');
+    var path = window.location.pathname;
     if (lang === 'en') {
-      // Reset: clear cookie, remove hash, reload to plain English
-      document.cookie = 'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
-      window.location.href = window.location.pathname;
+      // Back to real domain
+      window.location.href = 'https://' + host + path;
     } else {
-      // Google's native mechanism: #googtrans(en|LANG) triggers translation on page load
-      window.location.href = window.location.pathname + '#googtrans(en|' + lang + ')';
+      // Proxy domain: kent-tools.com → kent-tools-com.translate.goog
+      var proxyHost = host.replace(/\./g, '-') + '.translate.goog';
+      window.location.href = 'https://' + proxyHost + path + '?_x_tr_sl=en&_x_tr_tl=' + lang + '&_x_tr_hl=' + lang + '&_x_tr_pto=wapp';
     }
   });
 })();

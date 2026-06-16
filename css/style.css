@@ -714,24 +714,6 @@ h4 { font-size: 1.15rem; font-weight: 600; }
   box-shadow: 0 0 0 3px rgba(244,121,32,0.15);
 }
 
-/* Hide Google Translate banner ONLY (not translation content) */
-.goog-te-banner-frame,
-iframe.goog-te-banner-frame,
-.goog-te-banner {
-  display: none !important;
-}
-body { top: 0 !important; }
-.goog-logo-link { display: none !important; }
-.goog-te-gadget { font-size: 0 !important; }
-/* Hide the Google Translate popup tooltip on hover */
-.goog-tooltip,
-.goog-tooltip:hover,
-#goog-gt-tt,
-.goog-te-balloon-frame {
-  display: none !important;
-  visibility: hidden !important;
-}
-
 @media (max-width: 768px) {
   .lang-switcher {
     margin-left: 0;
