@@ -1016,31 +1016,3 @@ h4 { font-size: 1.15rem; font-weight: 600; }
   .floating-btn { width: 50px; height: 50px; }
   .floating-btn svg { width: 23px; height: 23px; }
 }
-
-/* ============================================================
-   Google Translate - Hide Banner & Frame
-   ============================================================ */
-/* Hide the top banner frame */
-.goog-te-banner-frame {
-  display: none !important;
-}
-
-/* Reset body top padding that Google adds */
-body {
-  top: 0 !important;
-}
-
-/* Hide the default Google Translate widget (we use our own dropdown) */
-#google_translate_element {
-  display: none;
-}
-
-/* Hide the "Powered by Google Translate" iframe */
-.goog-te-gadget {
-  display: none;
-}
-
-/* Ensure translated content is visible */
-.skiptranslate {
-  display: block !important;
-}
