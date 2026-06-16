@@ -244,8 +244,15 @@ function initCarousels() {
   // Register change listener immediately
   select.addEventListener('change', function() {
     var lang = this.value;
+
+    // English: go back to original domain
     if (lang === 'en') {
-      window.location.href = window.location.pathname;
+      if (window.location.host.indexOf('.translate.goog') > -1) {
+        var origHost = window.location.host.replace(/\.translate\.goog$/, '').replace(/-/g, '.');
+        window.location.href = 'https://' + origHost + window.location.pathname;
+      } else {
+        window.location.reload();
+      }
       return;
     }
 
@@ -253,10 +260,23 @@ function initCarousels() {
     if (googReady && googCombo) {
       googCombo.value = lang;
       googCombo.dispatchEvent(new Event('change'));
+      return;
+    }
+
+    // Fallback: Google Translate proxy URL
+    var host = window.location.host;
+    var path = window.location.pathname;
+
+    // If already on proxy, just update the _x_tr_tl param
+    if (host.indexOf('.translate.goog') > -1) {
+      var qs = window.location.search;
+      if (qs.indexOf('_x_tr_tl=') > -1) {
+        qs = qs.replace(/_x_tr_tl=[a-z-]+/, '_x_tr_tl=' + lang);
+      } else {
+        qs = qs + (qs ? '&' : '?') + '_x_tr_tl=' + lang + '&_x_tr_sl=en&_x_tr_hl=' + lang + '&_x_tr_pto=wapp';
+      }
+      window.location.href = 'https://' + host + path + qs;
     } else {
-      // Fallback: Google Translate proxy URL
-      var host = window.location.host;
-      var path = window.location.pathname;
       // Build proxy host: kent-tools.com → kent-tools-com.translate.goog
       var proxyHost = host.replace(/\./g, '-') + '.translate.goog';
       window.location.href = 'https://' + proxyHost + path + '?_x_tr_sl=en&_x_tr_tl=' + lang + '&_x_tr_hl=' + lang + '&_x_tr_pto=wapp';
