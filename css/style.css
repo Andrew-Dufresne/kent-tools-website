@@ -704,6 +704,94 @@ h4 { font-size: 1.15rem; font-weight: 600; }
 .breadcrumb a:hover { color: var(--white); text-decoration: underline; }
 
 /* ============================================================
+   PRODUCT DETAIL PAGE
+   ============================================================ */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+.product-detail-image {
+  background: var(--gray-100);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-detail-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+.product-detail-desc {
+  font-size: 1.02rem;
+  color: var(--gray-600);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+.product-detail-info h3 {
+  font-size: 1.05rem;
+  margin: 24px 0 10px;
+  color: var(--gray-800);
+}
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+.feature-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+  font-size: 0.93rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+.feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+/* Spec Table */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 0.9rem;
+}
+.spec-table tr { border-bottom: 1px solid var(--gray-200); }
+.spec-table tr:last-child { border-bottom: none; }
+.spec-table th {
+  text-align: left;
+  padding: 10px 16px 10px 0;
+  color: var(--gray-500);
+  font-weight: 500;
+  width: 160px;
+  vertical-align: top;
+}
+.spec-table td {
+  padding: 10px 0;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+.product-detail-info .btn { margin-top: 8px; }
+
+@media (max-width: 1024px) {
+  .product-detail { grid-template-columns: 1fr; gap: 30px; }
+  .product-detail-image { min-height: 300px; }
+}
+@media (max-width: 768px) {
+  .spec-table th { width: 120px; }
+}
+
+/* ============================================================
    FLOATING CONTACT BUTTONS
    ============================================================ */
 .floating-contact {
