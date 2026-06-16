@@ -232,38 +232,59 @@ function initCarousels() {
 }
 
 /* ============================================================
-   Language Switcher — Google Translate Gadget
+   Language Switcher — Google Translate Gadget + Proxy Fallback
    ============================================================ */
 (function() {
   var select = document.getElementById('lang-switcher');
   if (!select) return;
 
-  // Wait for Google Translate to load, then hook up our dropdown
-  function initLanguageSwitcher() {
-    var googSelect = document.querySelector('.goog-te-combo');
-    if (!googSelect) {
-      // Google Translate not loaded yet, try again in 500ms
-      setTimeout(initLanguageSwitcher, 500);
+  var googReady = false;
+  var googCombo = null;
+
+  // Register change listener immediately
+  select.addEventListener('change', function() {
+    var lang = this.value;
+    if (lang === 'en') {
+      window.location.href = window.location.pathname;
       return;
     }
 
-    // Sync initial state
-    select.value = 'en';
+    // Try Google Translate gadget first
+    if (googReady && googCombo) {
+      googCombo.value = lang;
+      googCombo.dispatchEvent(new Event('change'));
+    } else {
+      // Fallback: Google Translate proxy URL
+      var host = window.location.host;
+      var path = window.location.pathname;
+      // Build proxy host: kent-tools.com → kent-tools-com.translate.goog
+      var proxyHost = host.replace(/\./g, '-') + '.translate.goog';
+      window.location.href = 'https://' + proxyHost + path + '?_x_tr_sl=en&_x_tr_tl=' + lang + '&_x_tr_hl=' + lang + '&_x_tr_pto=wapp';
+    }
+  });
 
-    // When user selects a language from our dropdown
-    select.addEventListener('change', function() {
-      var lang = this.value;
-      if (lang === 'en') {
-        // To reset translation, we need to reload the page
-        window.location.href = window.location.pathname;
-      } else {
-        // Trigger Google Translate
-        googSelect.value = lang;
-        googSelect.dispatchEvent(new Event('change'));
-      }
-    });
+  // Detect if already on proxy domain (set correct language in dropdown)
+  if (window.location.host.indexOf('.translate.goog') > -1) {
+    var m = window.location.search.match(/_x_tr_tl=([a-z-]+)/);
+    if (m && select.querySelector('option[value="' + m[1] + '"]')) {
+      select.value = m[1];
+    }
   }
 
-  // Start initialization
-  initLanguageSwitcher();
+  // Wait for Google Translate to load (up to 10 seconds)
+  var attempts = 0;
+  function waitForGoogle() {
+    googCombo = document.querySelector('.goog-te-combo');
+    if (googCombo) {
+      googReady = true;
+      select.value = 'en';
+      return;
+    }
+    attempts++;
+    if (attempts < 20) {
+      setTimeout(waitForGoogle, 500);
+    }
+    // After 10 seconds, give up — fallback to proxy on next change
+  }
+  waitForGoogle();
 })();
