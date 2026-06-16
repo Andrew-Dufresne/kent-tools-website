@@ -6,15 +6,13 @@
   <title>Kent Tools — Professional Crimping Tools Manufacturer & Supplier</title>
   <meta name="description" content="Kent Tools is a leading manufacturer of crimping tools — pro press copper crimpers, battery cable crimpers, manual hydraulic crimpers. OEM/ODM welcome. Factory direct pricing.">
   <link rel="stylesheet" href="css/style.css">
-  
-  <!-- Google Translate Initialization -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'ar,de,es,fr,ja,pt,ru',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
+        includedLanguages: 'ar,de,es,fr,ja,pt,ru,zh-CN',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+        autoDisplay: true
       }, 'google_translate_element');
     }
   </script>
@@ -38,16 +36,7 @@
     <button class="mobile-toggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-    <select class="lang-switcher" id="lang-switcher" aria-label="Select language">
-      <option value="ar">العربية</option>
-      <option value="de">Deutsch</option>
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="ja">日本語</option>
-      <option value="pt">Português</option>
-      <option value="ru">Русский</option>
-    </select>
+    <div id="google_translate_element" style="margin-left:10px;"></div>
   </div>
 </header>
 
@@ -304,6 +293,7 @@
 </footer>
 
   <div id="google_translate_element"></div>
+  <div id="google_translate_element" style="display:none;"></div>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1016,3 +1016,23 @@ h4 { font-size: 1.15rem; font-weight: 600; }
   .floating-btn { width: 50px; height: 50px; }
   .floating-btn svg { width: 23px; height: 23px; }
 }
+
+/* ============================================================
+   Google Translate — hide banner frame
+   ============================================================ */
+/* Move the Google banner frame off-screen instead of display:none */
+body > .skiptranslate[style] {
+  top: -1000px !important;
+  display: block !important;
+}
+
+/* The translate widget container (hidden, we use our own dropdown) */
+#google_translate_element {
+  display: none;
+}
+
+/* Prevent layout shift from Google's body padding */
+body {
+  top: 0 !important;
+  position: static !important;
+}

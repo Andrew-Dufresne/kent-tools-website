@@ -106,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+
 /* ============================================================
    Carousel Engine
    ============================================================ */
@@ -230,38 +231,3 @@ function initCarousels() {
     }
   });
 }
-
-/* ============================================================
-   Language Switcher — Google Translate Gadget
-   ============================================================ */
-(function() {
-  var select = document.getElementById('lang-switcher');
-  if (!select) return;
-
-  var googCombo = null;
-
-  // Wait for Google Translate to load
-  var attempts = 0;
-  (function waitForGoogle() {
-    googCombo = document.querySelector('.goog-te-combo');
-    if (googCombo) {
-      select.value = 'en';
-      return;
-    }
-    attempts++;
-    if (attempts < 30) setTimeout(waitForGoogle, 500);
-  })();
-
-  // Register change listener
-  select.addEventListener('change', function() {
-    var lang = this.value;
-    if (lang === 'en') {
-      window.location.reload();
-      return;
-    }
-    if (googCombo) {
-      googCombo.value = lang;
-      googCombo.dispatchEvent(new Event('change'));
-    }
-  });
-})();
