@@ -232,37 +232,38 @@ function initCarousels() {
 }
 
 /* ============================================================
-   Language Switcher — Google Translation Proxy
+   Language Switcher — Google Translate Gadget
    ============================================================ */
 (function() {
   var select = document.getElementById('lang-switcher');
   if (!select) return;
 
-  // Detect current language from translate.goog URL
-  function getCurrentLang() {
-    if (window.location.host.indexOf('.translate.goog') > -1) {
-      var m = window.location.search.match(/_x_tr_tl=([a-z-]+)/);
-      if (m) return m[1];
+  // Wait for Google Translate to load, then hook up our dropdown
+  function initLanguageSwitcher() {
+    var googSelect = document.querySelector('.goog-te-combo');
+    if (!googSelect) {
+      // Google Translate not loaded yet, try again in 500ms
+      setTimeout(initLanguageSwitcher, 500);
+      return;
     }
-    return 'en';
+
+    // Sync initial state
+    select.value = 'en';
+
+    // When user selects a language from our dropdown
+    select.addEventListener('change', function() {
+      var lang = this.value;
+      if (lang === 'en') {
+        // To reset translation, we need to reload the page
+        window.location.href = window.location.pathname;
+      } else {
+        // Trigger Google Translate
+        googSelect.value = lang;
+        googSelect.dispatchEvent(new Event('change'));
+      }
+    });
   }
 
-  var current = getCurrentLang();
-  if (current && select.querySelector('option[value="' + current + '"]')) {
-    select.value = current;
-  }
-
-  select.addEventListener('change', function() {
-    var lang = this.value;
-    var host = window.location.host.replace(/\.translate\.goog$/, '').replace(/-/g, '.');
-    var path = window.location.pathname;
-    if (lang === 'en') {
-      // Back to real domain
-      window.location.href = 'https://' + host + path;
-    } else {
-      // Proxy domain: kent-tools.com → kent-tools-com.translate.goog
-      var proxyHost = host.replace(/\./g, '-') + '.translate.goog';
-      window.location.href = 'https://' + proxyHost + path + '?_x_tr_sl=en&_x_tr_tl=' + lang + '&_x_tr_hl=' + lang + '&_x_tr_pto=wapp';
-    }
-  });
+  // Start initialization
+  initLanguageSwitcher();
 })();
