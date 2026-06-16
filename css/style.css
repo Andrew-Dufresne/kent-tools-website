@@ -792,6 +792,112 @@ h4 { font-size: 1.15rem; font-weight: 600; }
 }
 
 /* ============================================================
+   PRODUCT IMAGE CAROUSEL
+   ============================================================ */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 30px;
+}
+/* Arrow Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid var(--gray-200);
+  font-size: 1.4rem;
+  color: var(--gray-700);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  opacity: 0;
+  box-shadow: var(--shadow-sm);
+}
+.carousel:hover .carousel-btn { opacity: 1; }
+.carousel-btn:hover {
+  background: var(--white);
+  color: var(--orange);
+  border-color: var(--orange);
+  box-shadow: var(--shadow);
+}
+.carousel-btn:active { transform: translateY(-50%) scale(0.95); }
+.carousel-prev { left: 12px; }
+.carousel-next { right: 12px; }
+/* Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+.carousel-dot.active {
+  background: var(--orange);
+  transform: scale(1.3);
+  box-shadow: 0 0 6px rgba(244,121,32,0.4);
+}
+/* Swipe cursor */
+.carousel.swiping { cursor: grabbing; }
+.carousel { cursor: grab; }
+
+/* Mobile: always show arrows */
+@media (max-width: 768px) {
+  .carousel-btn {
+    opacity: 0.85;
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
+  }
+  .carousel-prev { left: 8px; }
+  .carousel-next { right: 8px; }
+  .carousel-dot { width: 8px; height: 8px; }
+  .carousel-dots { bottom: 12px; gap: 6px; }
+}
+
+/* ============================================================
    FLOATING CONTACT BUTTONS
    ============================================================ */
 .floating-contact {

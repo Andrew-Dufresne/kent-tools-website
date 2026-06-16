@@ -101,4 +101,132 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Product Image Carousel ---
+  initCarousels();
+
 });
+
+/* ============================================================
+   Carousel Engine
+   ============================================================ */
+function initCarousels() {
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+
+    if (!track || slides.length === 0) return;
+
+    let currentIndex = 0;
+    let isTransitioning = false;
+
+    // Build dots
+    if (slides.length > 1) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll('.carousel-dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+    }
+
+    function goTo(index) {
+      if (isTransitioning || index === currentIndex) return;
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      isTransitioning = true;
+      currentIndex = index;
+      track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+      updateDots();
+      setTimeout(() => { isTransitioning = false; }, 420);
+    }
+
+    function goNext() { goTo(currentIndex + 1); }
+    function goPrev() { goTo(currentIndex - 1); }
+
+    if (slides.length > 1) {
+      prevBtn.addEventListener('click', goPrev);
+      nextBtn.addEventListener('click', goNext);
+
+      // Touch / swipe
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchMoved = false;
+
+      carousel.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+          touchMoved = false;
+        }
+      }, { passive: true });
+
+      carousel.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 1) {
+          const dx = e.touches[0].clientX - touchStartX;
+          const dy = e.touches[0].clientY - touchStartY;
+          if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 5) {
+            touchMoved = true;
+            carousel.classList.add('swiping');
+          }
+        }
+      }, { passive: true });
+
+      carousel.addEventListener('touchend', (e) => {
+        carousel.classList.remove('swiping');
+        if (!touchMoved) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) {
+          dx > 0 ? goPrev() : goNext();
+        }
+      });
+
+      // Mouse drag (desktop)
+      let mouseDown = false;
+      let mouseStartX = 0;
+
+      carousel.addEventListener('mousedown', (e) => {
+        mouseDown = true;
+        mouseStartX = e.clientX;
+        carousel.classList.add('swiping');
+      });
+
+      carousel.addEventListener('mouseleave', () => {
+        if (mouseDown) {
+          mouseDown = false;
+          carousel.classList.remove('swiping');
+        }
+      });
+
+      carousel.addEventListener('mouseup', (e) => {
+        if (!mouseDown) return;
+        mouseDown = false;
+        carousel.classList.remove('swiping');
+        const dx = e.clientX - mouseStartX;
+        if (Math.abs(dx) > 40) {
+          dx > 0 ? goPrev() : goNext();
+        }
+      });
+
+      // Keyboard
+      carousel.setAttribute('tabindex', '0');
+      carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
+      });
+    } else {
+      // Single slide: hide nav
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+    }
+  });
+}
