@@ -56,11 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
           alert('Thank you! Your inquiry has been sent. We will reply within 12 hours.');
           contactForm.reset();
         } else {
-          alert('Please contact us directly:\nContact: Kent Zou\nEmail: kent@gezhi.group\nWhatsApp: +995 593 583 830');
+          alert('Please contact us directly:\nContact: Kent\nEmail: kent@gezhi.group\nWhatsApp: +995 593 583 830');
         }
       })
       .catch(() => {
-        alert('Please contact us directly:\nContact: Kent Zou\nEmail: kent@gezhi.group\nWhatsApp: +995 593 583 830');
+        alert('Please contact us directly:\nContact: Kent\nEmail: kent@gezhi.group\nWhatsApp: +995 593 583 830');
       })
       .finally(() => {
         btn.textContent = originalText;
