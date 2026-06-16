@@ -258,19 +258,19 @@ function initCarousels() {
 }
 
 /* ============================================================
-   Custom Language Switcher (Google Translate)
+   Custom Language Switcher (Google Translate via hash)
    ============================================================ */
 (function() {
   var select = document.getElementById('lang-switcher');
   if (!select) return;
 
-  // Detect current language from cookie
+  // Detect current language from URL hash
   function getCurrentLang() {
-    var m = document.cookie.match(/googtrans=\/en\/([a-z-]+)/);
+    var m = window.location.hash.match(/googtrans\(en\|([a-z-]+)\)/);
     return m ? m[1] : 'en';
   }
 
-  // Show currently active language
+  // Show currently active language in dropdown
   var current = getCurrentLang();
   if (current && select.querySelector('option[value="' + current + '"]')) {
     select.value = current;
@@ -278,11 +278,13 @@ function initCarousels() {
 
   select.addEventListener('change', function() {
     var lang = this.value;
-    // Set googtrans cookie — Google Translate reads it on next page load
-    var d = new Date();
-    d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
-    document.cookie = 'googtrans=/en/' + lang + ';expires=' + d.toUTCString() + ';path=/';
-    // Reload so Google Translate initializes with the new cookie
-    window.location.reload();
+    if (lang === 'en') {
+      // Reset: clear cookie, remove hash, reload to plain English
+      document.cookie = 'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+      window.location.href = window.location.pathname;
+    } else {
+      // Google's native mechanism: #googtrans(en|LANG) triggers translation on page load
+      window.location.href = window.location.pathname + '#googtrans(en|' + lang + ')';
+    }
   });
 })();
