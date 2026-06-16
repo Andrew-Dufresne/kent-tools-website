@@ -104,6 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Product Image Carousel ---
   initCarousels();
 
+  // --- Google Translate: hook custom dropdown to gadget ---
+  initTranslate();
+
 });
 
 
@@ -230,4 +233,36 @@ function initCarousels() {
       nextBtn.style.display = 'none';
     }
   });
+}
+
+/* ============================================================
+   Google Translate — Custom dropdown hooks into gadget
+   ============================================================ */
+function initTranslate() {
+  var select = document.getElementById('lang-switcher');
+  if (!select) return;
+
+  var googCombo = null;
+
+  // Wait for Google Translate to finish initializing
+  (function poll() {
+    googCombo = document.querySelector('.goog-te-combo');
+    if (googCombo) {
+      // Sync initial state
+      select.value = 'en';
+
+      // Forward changes from our dropdown to Google's
+      select.addEventListener('change', function () {
+        var lang = this.value;
+        if (lang === 'en') {
+          window.location.reload();
+          return;
+        }
+        googCombo.value = lang;
+        googCombo.dispatchEvent(new Event('change'));
+      });
+      return;
+    }
+    setTimeout(poll, 300);
+  })();
 }
