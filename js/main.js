@@ -44,14 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      // Replace with your own Formspree endpoint or backend URL
-      const FORM_ENDPOINT = 'https://formspree.io/f/your-form-id';
+      // Web3Forms endpoint — no change needed, form submits to https://api.web3forms.com/submit
       const formData = new FormData(contactForm);
 
-      fetch(FORM_ENDPOINT, {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
+        body: formData
       })
       .then(response => {
         if (response.ok) {

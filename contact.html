@@ -92,7 +92,10 @@
       <div class="fade-in">
         <div class="contact-form">
           <h3 style="margin-bottom: 24px;">Send Us an Inquiry</h3>
-          <form id="inquiry-form">
+          <form id="inquiry-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="9176ca7a-2e34-4a55-aa36-67ce98ec206d">
+            <input type="hidden" name="subject" value="New Inquiry from Kent Tools Website">
+            <input type="hidden" name="from_name" value="Kent Tools Website">
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Full Name *</label>
