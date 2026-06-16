@@ -684,6 +684,48 @@ h4 { font-size: 1.15rem; font-weight: 600; }
 }
 
 /* ============================================================
+   Google Translate Widget
+   ============================================================ */
+#google_translate_element {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+#google_translate_element .goog-te-gadget {
+  font-family: var(--font);
+  color: var(--gray-600);
+}
+#google_translate_element .goog-te-gadget-simple {
+  border: 1px solid var(--gray-200) !important;
+  border-radius: 6px;
+  padding: 5px 12px;
+  background: var(--white) !important;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+#google_translate_element .goog-te-gadget-simple:hover {
+  border-color: var(--orange) !important;
+}
+#google_translate_element .goog-te-menu-value span {
+  color: var(--gray-700) !important;
+}
+#google_translate_element .goog-te-menu-value:hover span {
+  color: var(--orange) !important;
+}
+/* Hide Google branding */
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+.goog-logo-link { display: none !important; }
+.goog-te-gadget .goog-te-gadget-simple .goog-te-menu-value img { margin-left: 4px; }
+
+@media (max-width: 768px) {
+  #google_translate_element {
+    margin-left: 0;
+  }
+}
+
+/* ============================================================
    ANIMATIONS
    ============================================================ */
 .fade-in {
