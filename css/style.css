@@ -1018,6 +1018,35 @@ h4 { font-size: 1.15rem; font-weight: 600; }
 }
 
 /* ============================================================
+   Product Category Header
+   ============================================================ */
+.product-category-header {
+  background: linear-gradient(135deg, var(--primary) 0%, #1a4080 100%);
+  padding: 48px 0 40px;
+  text-align: center;
+}
+
+.product-category-header--dark {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.category-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.category-desc {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ============================================================
    Google Translate — hide banner frame
    ============================================================ */
 /* Move the Google banner frame off-screen instead of display:none */
