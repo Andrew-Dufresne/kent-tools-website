@@ -438,6 +438,7 @@ h4 { font-size: 1.15rem; font-weight: 600; }
   gap: 30px;
 }
 .product-card {
+  position: relative;
   background: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
@@ -759,6 +760,11 @@ h4 { font-size: 1.15rem; font-weight: 600; }
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.product-detail-info .product-badge {
+  position: static;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 .product-detail-info h2 {
   font-size: 1.8rem;
