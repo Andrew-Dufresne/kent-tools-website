@@ -1,0 +1,729 @@
+### 000 | index.html | <title>
+Kent Tools — Professional Crimping Tools Manufacturer & Supplier
+
+### 001 | index.html | <meta>
+Kent Tools is a leading manufacturer of crimping tools — pro press copper crimpers, battery cable crimpers, manual hydraulic crimpers. OEM/ODM welcome. Factory direct pricing.
+
+### 002 | index.html | <h1>
+Professional <span>Crimping</span><br>Tools for Every Job
+
+### 003 | index.html | <h2>
+Crimping Solutions
+
+### 004 | index.html | <h2>
+Best-Selling Crimping Tools
+
+### 005 | index.html | <h2>
+Why Choose Kent Tools
+
+### 006 | index.html | <h2>
+Need Reliable Crimping Tools?
+
+### 007 | index.html | <h3>
+Pro Press Copper Crimper
+
+### 008 | index.html | <h3>
+Battery Cable Crimper
+
+### 009 | index.html | <h3>
+Manual Hydraulic Crimper
+
+### 010 | index.html | <h3>
+Pro Press Copper Crimper Tool Kit
+
+### 011 | index.html | <h3>
+Battery Cable Crimper HL-300B
+
+### 012 | index.html | <h3>
+ISO-Certified Factory
+
+### 013 | index.html | <h3>
+OEM / ODM Ready
+
+### 014 | index.html | <h3>
+Fast Lead Time
+
+### 015 | index.html | <h3>
+Strict QC Process
+
+### 016 | index.html | <h3>
+Global Shipping
+
+### 017 | index.html | <h4>
+Kent Tools
+
+### 018 | index.html | <h4>
+Quick Links
+
+### 019 | index.html | <p>
+Kent Tools — your reliable partner in crimping equipment. From copper pipe pressing to battery cable crimping and hydraulic solutions — we deliver tools that electricians and plumbers trust. OEM / ODM / wholesale — factory direct pricing, global shipping.
+
+### 020 | index.html | <p>
+Professional crimping tools for plumbing, electrical, and industrial applications — battery powered and manual.
+
+### 021 | index.html | <p>
+Battery powered, 42KN, for copper & stainless steel pipes
+
+### 022 | index.html | <p>
+60KN force, 12 dies, 8AWG-600MCM range
+
+### 023 | index.html | <p>
+10TON force, 9 dies, 12AWG-2/0AWG — portable
+
+### 024 | index.html | <p>
+Trusted by electricians, plumbers, and distributors in 50+ countries.
+
+### 025 | index.html | <p>
+Battery powered pro press tool with 4 US standard jaws — 1/2", 3/4", 1", 1-1/4". 100% copper motor delivers 42KN of crimping force, completes a press in 3-6 seconds. Ideal for plumbing, heating, and HVAC applications.
+
+### 026 | index.html | <p>
+Electro-hydraulic crimping tool with 12 dies covering 8AWG to 600MCM. 60KN max force, OLED display, 360° rotating jaw, and LED work light. 100% copper brushless motor with auto pressure release.
+
+### 027 | index.html | <p>
+Upgraded hydraulic system prevents oil leaks — 10TON max crimping force with 9 pairs of US standard dies (12AWG-2/0AWG). Bayonet die design for stable installation, quick-release return valve. High-strength steel, rust-proof.
+
+### 028 | index.html | <p>
+We don&rsquo;t just sell tools — we build partnerships that last.
+
+### 029 | index.html | <p>
+ISO 9001:2015 certified manufacturing facility with advanced CNC machining centers and automated assembly lines.
+
+### 030 | index.html | <p>
+Flexible custom branding — your logo, your colors, your packaging.
+
+### 031 | index.html | <p>
+Standard orders shipped in 15-25 days. Urgent orders expedited. Popular models in stock for immediate dispatch.
+
+### 032 | index.html | <p>
+Every unit undergoes 3-stage quality inspection: incoming materials, in-process, and final pre-shipment testing.
+
+### 033 | index.html | <p>
+FOB / CIF / DDP — flexible shipping terms. Reliable logistics for sea, air, and rail freight worldwide.
+
+### 034 | index.html | <p>
+Dedicated account manager for every client. Technical support, spare parts, and after-sales — always available.
+
+### 035 | index.html | <p>
+Send us your requirements — we&rsquo;ll get back with a competitive quote within 12 hours.
+
+### 036 | index.html | <p>
+Professional crimping tools manufacturer and supplier. We deliver reliable, high-quality crimping equipment to electricians, plumbers, distributors, and brands worldwide.
+
+### 037 | index.html | <li>
+<a href="about.html">About Us</a>
+
+### 038 | index.html | <li>
+<a href="products.html#copper">Pro Press Copper Crimper</a>
+
+### 039 | index.html | <li>
+<a href="products.html#battery">Battery Cable Crimper</a>
+
+### 040 | index.html | <li>
+<a href="products.html#manual">Manual Hydraulic Crimper</a>
+
+### 041 | index.html | <li>
+<a href="mailto:kent@gezhi.group">kent@gezhi.group</a>
+
+### 042 | index.html | <li>
+Station Square, Tbilisi, 0100 Georgia
+
+### 043 | products.html | <title>
+Products — Kent Tools | Crimping Tools &amp; Rebar Solutions
+
+### 044 | products.html | <meta>
+Browse Kent Tools full product range: pro press copper crimpers, battery cable crimpers, manual hydraulic crimpers, rebar tying tools, rebar benders, rebar cutters and more. Full specifications. OEM/ODM available.
+
+### 045 | products.html | <h2>
+Crimping Tools
+
+### 046 | products.html | <h2>
+MINI Pro Press Copper Crimper HZT-25M
+
+### 047 | products.html | <h2>
+Battery Cable Crimper HL-400B — 12TON
+
+### 048 | products.html | <h2>
+Pro Press Copper Crimper HZT-50S — 6 Jaws
+
+### 049 | products.html | <h2>
+Rebar Solutions
+
+### 050 | products.html | <h2>
+Rebar Tying Tool
+
+### 051 | products.html | <h2>
+Rebar Tying Machine
+
+### 052 | products.html | <h2>
+Rebar Bender
+
+### 053 | products.html | <h2>
+Brushless Rebar Bender
+
+### 054 | products.html | <h2>
+Rebar Cutter
+
+### 055 | products.html | <h2>
+Rebar Flush Cutter
+
+### 056 | products.html | <h2>
+Hydraulic Rebar Cutter
+
+### 057 | products.html | <h2>
+Rebar Sleeve Threading Machine
+
+### 058 | products.html | <h2>
+0.8mm Tie Wire Roll
+
+### 059 | products.html | <h2>
+Don&rsquo;t See What You Need?
+
+### 060 | products.html | <h3>
+Key Features
+
+### 061 | products.html | <p>
+Battery-powered and manual hydraulic crimping solutions for copper pipe, cable, and wire rope applications.
+
+### 062 | products.html | <p>
+Battery powered pro press crimping tool designed for US standard copper and stainless steel pipes. Delivers 42KN of force with 100% pure copper motor — completes each press in 3-6 seconds. Compatible with Viega and MegaPress systems.
+
+### 063 | products.html | <p>
+Electro-hydraulic crimping tool with a wide 8AWG to 600MCM range. Powered by a 100% copper brushless motor with OLED display showing power level and usage count. Ideal for circuit repair, electrical installations, and cable railing systems.
+
+### 064 | products.html | <p>
+Compact, portable hydraulic crimping tool with 10TON max force. Upgraded hydraulic seal ring design prevents oil leaks for long-term reliability. 9 pairs of US standard dies cover 12AWG to 2/0AWG. Perfect for stainless steel wire rope, battery cable lugs, and cable railing upgrades.
+
+### 065 | products.html | <p>
+Compact upright battery-powered copper pipe press tool — weighs only 5.7 lbs. Designed for one-hand operation in narrow passages and tight spaces. 32KN squeezing force with 100% copper motor completes each press in 3-6 seconds.
+
+### 066 | products.html | <p>
+Professional-grade electro-hydraulic crimping tool with 120KN (12TON) max force — the most powerful in the HEWLEE crimper line. 100% copper brushless motor with OLED display. Wide 6AWG to 800MCM range with 12 dies included. Built for electricians, circuit repairs, and stainless steel cable railing installations.
+
+### 067 | products.html | <p>
+The most comprehensive copper pipe press kit with 6 jaws covering 1/2" through 2". 42KN professional-grade force with 100% copper motor. 18V 5.0Ah high-capacity batteries deliver 400+ crimps per charge. Covers 99% of copper pipe crimping jobs.
+
+### 068 | products.html | <p>
+Complete range of rebar tying tools, benders, cutters, threading machines and consumables for construction professionals.
+
+### 069 | products.html | <p>
+Battery-powered rebar binding machine with dual brushless motor. Saves up to 75% total labor and materials cost vs manual tying. 0.7 seconds fast tying speed — 3-5× faster than manual. Ergonomic lightweight design reduces strain on hands, arms and back.
+
+### 070 | products.html | <p>
+Single-hand operated battery-powered rebar tier with brushless motor for extended machine life. Handles rebar from 4mm to 58mm. Features 1-10 level adjustable tension for precise control on different rebar sizes.
+
+### 071 | products.html | <p>
+High-power portable rebar bending machine. Bends rebar from 4mm to 36mm in just 2-5 seconds. High-strength ferroalloy forging material with Japanese imported knife shaft seal rings for precision and durability.
+
+### 072 | products.html | <p>
+High-power brushless motor rebar bender delivering 3200W for long-lasting durability. Bends 10-28mm rebar in 2-4 seconds. Same precision hydraulic design with Japanese imported seals for professional-grade reliability.
+
+### 073 | products.html | <p>
+Portable 360° flush-cut rebar cutter with brushless motor. Spark-free cuts in 3-5 seconds with advanced safety features. Detachable handle and rotating head allows access to tight spaces — cuts rebar, bolts, chains, and padlocks.
+
+### 074 | products.html | <p>
+Zero-clearance rebar cutting machine with innovative spark suppression technology — reduces spatter by over 90%. Cuts up to 3mm flush to the surface in 2.5 seconds for M10 rebar. Includes chip collection bag to keep work areas clean.
+
+### 075 | products.html | <p>
+High-power handheld hydraulic rebar cutter with carbon brush motor. Cuts rebar in 2.5-4 seconds without sparks, sediment, or smell. Triple-plunger hole design with genuine Japanese imported cutter shaft seals for long-lasting precision.
+
+### 076 | products.html | <p>
+Cordless portable rebar threading machine for on-site sleeve connections. Handles 16-32mm sockets and 16-40mm rebar. Delivers 1200N max torque with 3000 r/min motor speed for fast, precise threads.
+
+### 077 | products.html | <p>
+Premium 0.8mm rebar tie wire coils designed for use with battery-powered rebar tying machines (RT528 / RT545 / RT558 series). Available in galvanized, black annealed, PVC-coated, and stainless steel options. 100m per coil.
+
+### 078 | products.html | <p>
+We offer OEM/ODM services — tell us your requirements and we&rsquo;ll build it for you.
+
+### 079 | products.html | <li>
+100% copper motor delivers 42KN crimping force
+
+### 080 | products.html | <li>
+4 US standard jaws: 1/2", 3/4", 1", 1-1/4" — covers 99% of common copper pipe jobs
+
+### 081 | products.html | <li>
+360° rotating jaw for complex and tight spaces
+
+### 082 | products.html | <li>
+Built-in LED light for low-light environments
+
+### 083 | products.html | <li>
+Automatic pressure release after each crimp to protect the motor
+
+### 084 | products.html | <li>
+Temperature sensor and ventilation slots for heat dissipation
+
+### 085 | products.html | <li>
+2 × 18V 5.0Ah lithium batteries — supports 400+ continuous crimps
+
+### 086 | products.html | <li>
+Universal charger included
+
+### 087 | products.html | <li>
+100% copper brushless motor — max 60KN crimping force
+
+### 088 | products.html | <li>
+12 dies included: 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300# (US standard)
+
+### 089 | products.html | <li>
+Crimping range: 8AWG to 600MCM
+
+### 090 | products.html | <li>
+OLED display — real-time power and usage counter
+
+### 091 | products.html | <li>
+360° rotating jaw for flexible positioning
+
+### 092 | products.html | <li>
+LED work light for low-visibility conditions
+
+### 093 | products.html | <li>
+Automatic pressure release and retraction after each crimp
+
+### 094 | products.html | <li>
+Temperature sensor &amp; ventilation for heat dissipation
+
+### 095 | products.html | <li>
+2 × 18V 5.0Ah batteries — approx. 300 crimps per charge
+
+### 096 | products.html | <li>
+Max 10TON crimping force — handles heavy-duty jobs with ease
+
+### 097 | products.html | <li>
+9 pairs of US standard dies — 12AWG to 2/0AWG
+
+### 098 | products.html | <li>
+Upgraded hydraulic system with seal ring design — prevents oil leaks
+
+### 099 | products.html | <li>
+Bayonet die mount — stable, quick die changes
+
+### 100 | products.html | <li>
+Quick-release return valve — fast piston reset between crimps
+
+### 101 | products.html | <li>
+High-strength steel construction with rust-proof galvanized finish
+
+### 102 | products.html | <li>
+5 replaceable seal rings included for extended service life
+
+### 103 | products.html | <li>
+Compact and portable — no battery or power source needed
+
+### 104 | products.html | <li>
+Ultra-lightweight — only 5.7 lbs net (9.7 lbs with jaws+battery)
+
+### 105 | products.html | <li>
+Upright single-hand design for narrow passages and complex jobs
+
+### 106 | products.html | <li>
+100% copper motor delivers 32KN crimping force
+
+### 107 | products.html | <li>
+3 US standard jaws: 1/2", 3/4", 1" — compatible with Viega and MegaPress
+
+### 108 | products.html | <li>
+OLED display for real-time power and usage monitoring
+
+### 109 | products.html | <li>
+360° swiveling jaws for flexible positioning
+
+### 110 | products.html | <li>
+2 × 18V 2.5Ah lithium batteries — fully rechargeable within 1 hour
+
+### 111 | products.html | <li>
+Includes shoulder straps for easy carrying on site
+
+### 112 | products.html | <li>
+120KN (12 TON) crimping force — highest in class
+
+### 113 | products.html | <li>
+100% copper brushless motor — completes crimps in 5-8 seconds
+
+### 114 | products.html | <li>
+12 dies included: 16#-400# (6AWG to 800MCM) — US standard
+
+### 115 | products.html | <li>
+18V 5.0Ah battery × 2 — approx. 300 crimps per full charge
+
+### 116 | products.html | <li>
+360° swiveling jaw for flexible positioning in tight spaces
+
+### 117 | products.html | <li>
+Built-in LED work light for low-light environments
+
+### 118 | products.html | <li>
+6 US standard jaws: 1/2", 3/4", 1", 1-1/4", 1-1/2", 2" — covers 99% of jobs
+
+### 119 | products.html | <li>
+18V 5.0Ah battery × 2 — supports 400+ continuous crimps per charge
+
+### 120 | products.html | <li>
+200% more runtime than 2.0Ah batteries
+
+### 121 | products.html | <li>
+Fast 3-6 seconds press cycle with automatic pressure release
+
+### 122 | products.html | <li>
+350° swiveling jaw adapts to complex environments
+
+### 123 | products.html | <li>
+Built-in LED work light for low-light conditions
+
+### 124 | products.html | <li>
+Dual brushless motor — 0.7 seconds tying speed
+
+### 125 | products.html | <li>
+Tie with dual 1.0mm wire, keeps rebar from loosening
+
+### 126 | products.html | <li>
+1-5 levels adjustable tension with digital control &amp; warning sensor
+
+### 127 | products.html | <li>
+Over 4,000 ties per charge (18V 5.0Ah Li-ion battery)
+
+### 128 | products.html | <li>
+Ergonomic lightweight design — reduces physical strain
+
+### 129 | products.html | <li>
+Single-hand operation — 0.7-0.8 seconds tying speed
+
+### 130 | products.html | <li>
+1-10 levels adjustable tension with digital control
+
+### 131 | products.html | <li>
+Single brushless motor — extended operational life
+
+### 132 | products.html | <li>
+2 or 3 wrap options for secure fastening
+
+### 133 | products.html | <li>
+Over 4,600 ties per charge (18.5V 5.0Ah battery)
+
+### 134 | products.html | <li>
+Ergonomic lightweight design — 2.65-2.7kg
+
+### 135 | products.html | <li>
+Upgraded high-power carbon brush motor
+
+### 136 | products.html | <li>
+Bend rebar 4-36mm in 2-5 seconds
+
+### 137 | products.html | <li>
+0-130° angle adjustment via die head
+
+### 138 | products.html | <li>
+High-strength 600# spherical molybdenum round steel
+
+### 139 | products.html | <li>
+Japanese imported knife shaft seal rings
+
+### 140 | products.html | <li>
+#32 or #46 hydraulic oil compatible
+
+### 141 | products.html | <li>
+High-power brushless motor — 3200W
+
+### 142 | products.html | <li>
+Bend rebar 10-28mm in 2-4 seconds
+
+### 143 | products.html | <li>
+0-130° angle adjustment
+
+### 144 | products.html | <li>
+Longer operational life vs carbon brush motor
+
+### 145 | products.html | <li>
+Automatic reset — portable, efficient and safe
+
+### 146 | products.html | <li>
+Cuts rebar, rod, bolts, chains and padlocks
+
+### 147 | products.html | <li>
+Spark-free cuts in 3-5 seconds
+
+### 148 | products.html | <li>
+Brushless motor — low vibration, low noise
+
+### 149 | products.html | <li>
+360° rotating head for tight spaces
+
+### 150 | products.html | <li>
+Detachable handle for versatile use
+
+### 151 | products.html | <li>
+Smart controls with warning detection system
+
+### 152 | products.html | <li>
+Low spark — spark suppression reduces spatter by over 90%
+
+### 153 | products.html | <li>
+Effortless flush cuts up to 3mm from the surface
+
+### 154 | products.html | <li>
+2.5 seconds to cut M10 rebar
+
+### 155 | products.html | <li>
+Chip collection bag included
+
+### 156 | products.html | <li>
+Brushless motor — low vibration, low noise, long lifespan
+
+### 157 | products.html | <li>
+3 position adjustable side handle
+
+### 158 | products.html | <li>
+Used in construction, industry and rescue/emergency operations
+
+### 159 | products.html | <li>
+High-power carbon brush motor — strong cutting force
+
+### 160 | products.html | <li>
+Cut rebar in 2.5-4 seconds without sparks
+
+### 161 | products.html | <li>
+High-strength iron alloy forged material — 600# ball-molybdenum
+
+### 162 | products.html | <li>
+Patented triple-plunger hole design
+
+### 163 | products.html | <li>
+Japanese imported cutter shaft seals
+
+### 164 | products.html | <li>
+Cordless portable design for on-site flexibility
+
+### 165 | products.html | <li>
+Handles 16-32mm socket and 16-40mm rebar
+
+### 166 | products.html | <li>
+Max torque: 1200N
+
+### 167 | products.html | <li>
+Motor speed: 3000 r/min
+
+### 168 | products.html | <li>
+60-90 min working time per charge
+
+### 169 | products.html | <li>
+Compact and lightweight at 8.5kg
+
+### 170 | products.html | <li>
+Designed for RT series rebar tying machines
+
+### 171 | products.html | <li>
+0.8mm single wire (21 Ga) — 100m per coil
+
+### 172 | products.html | <li>
+High tensile strength: 480-520 MPa
+
+### 173 | products.html | <li>
+Multiple options: Galvanized / Black annealed / PVC-coated / Stainless steel
+
+### 174 | products.html | <li>
+Q195 material for consistent, reliable performance
+
+### 175 | products.html | <li>
+<a href="#copper">Pro Press Copper Crimper</a>
+
+### 176 | products.html | <li>
+<a href="#battery">Battery Cable Crimper HL-300B</a>
+
+### 177 | products.html | <li>
+<a href="#manual">Manual Hydraulic Crimper</a>
+
+### 178 | products.html | <li>
+<a href="#mini-copper">MINI Copper Crimper HZT-25M</a>
+
+### 179 | products.html | <li>
+<a href="#hl-400b">Battery Cable Crimper HL-400B</a>
+
+### 180 | products.html | <li>
+<a href="#hzt-50s">Copper Press Tool HZT-50S</a>
+
+### 181 | products.html | <li>
+<a href="#rebar-tying-tool">Rebar Tying Tool</a>
+
+### 182 | products.html | <li>
+<a href="#rebar-tying-machine">Rebar Tying Machine</a>
+
+### 183 | products.html | <li>
+<a href="#rebar-bender">Rebar Bender</a>
+
+### 184 | products.html | <li>
+<a href="#rebar-cutter">Rebar Cutter</a>
+
+### 185 | products.html | <li>
+<a href="#rebar-threading-machine">Rebar Threading Machine</a>
+
+### 186 | about.html | <title>
+About Us — Kent Tools | Crimping Tools Manufacturer
+
+### 187 | about.html | <meta>
+Learn about Kent Tools — a professional crimping tools manufacturer with 24+ years of experience. ISO-certified factory, OEM/ODM, global shipping.
+
+### 188 | about.html | <h1>
+About Kent Tools
+
+### 189 | about.html | <h2>
+Built on Quality, Driven by Trust
+
+### 190 | about.html | <h2>
+What We Stand For
+
+### 191 | about.html | <h2>
+Quality You Can Trust
+
+### 192 | about.html | <h2>
+Want to Visit Our Factory?
+
+### 193 | about.html | <h3>
+Quality First
+
+### 194 | about.html | <h3>
+Customer Focus
+
+### 195 | about.html | <h3>
+Continuous Innovation
+
+### 196 | about.html | <h4>
+CE Certified
+
+### 197 | about.html | <h4>
+RoHS Compliant
+
+### 198 | about.html | <h4>
+GS Safety
+
+### 199 | about.html | <p>
+<a href="index.html">Home</a> / About Us
+
+### 200 | about.html | <p>
+Delivering reliable crimping solutions to the world.
+
+### 201 | about.html | <p>
+Kent Tools is a professional manufacturer specializing in crimping equipment. With over 24 years of industry experience, we design, manufacture, and export a complete range of crimping tools — from pro press copper crimpers and battery cable crimpers to manual hydraulic crimpers.
+
+### 202 | about.html | <p>
+Our mission is simple: deliver reliable, high-performance tools that construction professionals can depend on, at competitive prices, with exceptional service.
+
+### 203 | about.html | <p>
+Headquartered in China, we serve distributors, wholesalers, and construction companies in over 50 countries across the Middle East, Southeast Asia, Africa, Europe, and the Americas. OEM and ODM services are our core strength — we bring your brand vision to life.
+
+### 204 | about.html | <p>
+Three principles guide everything we do.
+
+### 205 | about.html | <p>
+Every tool undergoes rigorous testing before it leaves our factory. We use premium materials and components sourced from trusted global suppliers.
+
+### 206 | about.html | <p>
+We treat every client as a long-term partner. Dedicated account management, responsive support, and flexible solutions tailored to your needs.
+
+### 207 | about.html | <p>
+We invest in R&amp;D to continuously improve our products — more power, longer battery life, lighter weight, and smarter controls.
+
+### 208 | about.html | <p>
+Our products meet international standards for safety, quality, and environmental compliance.
+
+### 209 | about.html | <p>
+Quality Management System
+
+### 210 | about.html | <p>
+European Conformity
+
+### 211 | about.html | <p>
+Hazardous Substance Free
+
+### 212 | about.html | <p>
+German Safety Standard
+
+### 213 | about.html | <p>
+We welcome factory visits from all clients. Contact us to schedule your tour.
+
+### 214 | contact.html | <title>
+Contact — Kent Tools | Get a Quote for Rebar Tools
+
+### 215 | contact.html | <meta>
+Contact Kent Tools for rebar tool inquiries. OEM/ODM, wholesale orders. WhatsApp: +995 593 583 830. Email: kent@gezhi.group
+
+### 216 | contact.html | <h1>
+Get in Touch
+
+### 217 | contact.html | <h2>
+Let&rsquo;s Talk Business
+
+### 218 | contact.html | <h2>
+Frequently Asked Questions
+
+### 219 | contact.html | <h3>
+Send Us an Inquiry
+
+### 220 | contact.html | <h3>
+What is your lead time?
+
+### 221 | contact.html | <h3>
+Do you offer OEM / ODM?
+
+### 222 | contact.html | <h3>
+What payment terms do you accept?
+
+### 223 | contact.html | <h3>
+What shipping methods do you offer?
+
+### 224 | contact.html | <h3>
+What warranty do you provide?
+
+### 225 | contact.html | <h4>
+Contact Person
+
+### 226 | contact.html | <p>
+<a href="index.html">Home</a> / Contact
+
+### 227 | contact.html | <p>
+We reply to all inquiries within 12 business hours.
+
+### 228 | contact.html | <p>
+Whether you need a quote, want to discuss OEM/ODM, or plan a factory visit — we&rsquo;re here to help.
+
+### 229 | contact.html | <p>
+<a href="mailto:kent@gezhi.group" style="color:var(--orange);">kent@gezhi.group</a>
+
+### 230 | contact.html | <p>
+<strong>Prefer to message directly?</strong><br>Click the WhatsApp button below to start a chat instantly — we respond within minutes during business hours.
+
+### 231 | contact.html | <p>
+We respect your privacy. Your information will never be shared.
+
+### 232 | contact.html | <p>
+Quick answers to common questions.
+
+### 233 | contact.html | <p>
+Standard orders: 15-25 working days. Sample orders: 3-7 days. OEM/ODM: 25-35 days.
+
+### 234 | contact.html | <p>
+Absolutely! OEM/ODM is our core service. Custom color, logo, packaging, and specifications — we build tools to your exact requirements.
+
+### 235 | contact.html | <p>
+T/T (30% deposit, 70% before shipment), L/C at sight, and Western Union for samples. Flexible terms for long-term partners.
+
+### 236 | contact.html | <p>
+Sea freight (FCL/LCL), air freight, and express courier (DHL, FedEx, UPS). FOB, CIF, or DDP available.
+
+### 237 | contact.html | <p>
+12-month warranty against manufacturing defects. Spare parts and technical support available throughout the product lifecycle.
+
+### 238 | contact.html | <p>
+Professional rebar tools manufacturer and supplier. We deliver reliable, high-quality rebar processing equipment to construction companies, distributors, and brands worldwide.
+
+### 239 | contact.html | <li>
+<a href="products.html#tying">Rebar Tying Tools</a>
+
+### 240 | contact.html | <li>
+<a href="products.html#bending">Rebar Benders</a>
+
+### 241 | contact.html | <li>
+<a href="products.html#cutting">Rebar Cutters</a>
+
+### 242 | contact.html | <li>
+<a href="products.html#threading">Threading Machines</a>
+

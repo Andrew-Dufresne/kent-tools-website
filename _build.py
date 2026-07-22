@@ -21,6 +21,17 @@ LANG_NAMES = {
 }
 RTL = {"ar"}
 
+ARIA_LABELS = {
+    "en": "Select language",
+    "ar": "\u0627\u062e\u062a\u0631 \u0627\u0644\u0644\u063a\u0629",
+    "de": "Sprache auswählen",
+    "es": "Seleccionar idioma",
+    "fr": "Choisir la langue",
+    "ja": "\u8a00\u8a9e\u3092\u9078\u629e",
+    "pt": "Selecionar idioma",
+    "ru": "\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u044f\u0437\u044b\u043a",
+}
+
 
 def strip_gt(html):
     """Remove all Google Translate code from HTML."""
@@ -70,8 +81,8 @@ def gen_switcher(cur_lang, page):
         sel = " selected" if lang == cur_lang else ""
         opts.append(f'  <option value="{url}"{sel}>{LANG_NAMES[lang]}</option>')
     return (
-        '<select class="lang-switcher" onchange="window.location.href=this.value"'
-        ' aria-label="Select language">\n' + "\n".join(opts) + "\n</select>"
+        f'<select class="lang-switcher" onchange="window.location.href=this.value"'
+        f' aria-label="{ARIA_LABELS[cur_lang]}">\n' + "\n".join(opts) + "\n</select>"
     )
 
 
