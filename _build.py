@@ -103,17 +103,22 @@ def replace_switcher(html, lang, page):
 
 
 def update_css():
-    """Update style.css: remove GT CSS, add RTL CSS."""
+    """Update style.css: safely remove any Google Translate remnants, append RTL CSS.
+    The GT-comment regex is anchored so it can NEVER span across an unrelated
+    /* comment opener (which previously wiped the whole stylesheet)."""
     css_path = SRC / "css" / "style.css"
-    css = css_path.read_text(encoding="utf-8")
-    # Remove GT CSS block
-    css = re.sub(r"/\*.*?Google Translate.*?\*/\s*", "", css, flags=re.DOTALL)
-    css = re.sub(r"/\*.*?Move the Google banner frame off-screen.*?\*/\s*", "", css, flags=re.DOTALL)
-    css = re.sub(r"/\*.*?The translate widget container.*?\*/\s*", "", css, flags=re.DOTALL)
-    css = re.sub(r"/\*.*?Prevent layout shift from Google's body padding.*?\*/\s*", "", css, flags=re.DOTALL)
-    css = re.sub(r"body > \.skiptranslate\s*\{[^}]*\}", "", css)
+    original = css_path.read_text(encoding="utf-8")
+    css = original
+    # Specific GT selectors (bounded, safe):
+    css = re.sub(r"body\s*>\s*\.skiptranslate\s*\{[^}]*\}", "", css)
     css = re.sub(r"#google_translate_element\s*\{[^}]*\}", "", css)
     css = re.sub(r"body\s*\{\s*top:\s*0\s*!important;[^}]*\}", "", css)
+    # GT comment block: only remove a comment whose OWN /*...*/ contains the marker.
+    css = re.sub(r"/\*(?:(?!\*/)(?!\/\*).)*?Google Translate(?:(?!\*/).)*?\*/\s*", "", css, flags=re.DOTALL)
+    # Safety guard: never let processing shrink the stylesheet catastrophically.
+    if len(css) < 0.5 * len(original):
+        print("  WARNING: update_css produced a drastically smaller CSS; keeping original.")
+        css = original
     # Add RTL CSS
     rtl_css = """
 
