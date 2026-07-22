@@ -6,17 +6,8 @@
   <title>Products — Kent Tools | Crimping Tools &amp; Rebar Solutions</title>
   <meta name="description" content="Browse Kent Tools full product range: pro press copper crimpers, battery cable crimpers, manual hydraulic crimpers, rebar tying tools, rebar benders, rebar cutters and more. Full specifications. OEM/ODM available.">
   <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'ar,de,es,fr,ja,pt,ru',
-        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+  
 </head>
 <body>
 
@@ -36,16 +27,16 @@
     <button class="mobile-toggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-    <select class="lang-switcher" id="lang-switcher" aria-label="Select language">
-      <option value="ar">العربية</option>
-      <option value="de">Deutsch</option>
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="ja">日本語</option>
-      <option value="pt">Português</option>
-      <option value="ru">Русский</option>
-    </select>
+    <select class="lang-switcher" onchange="window.location.href=this.value" aria-label="Select language">
+  <option value="products.html" selected>English</option>
+  <option value="ar/products.html">العربية</option>
+  <option value="de/products.html">Deutsch</option>
+  <option value="es/products.html">Español</option>
+  <option value="fr/products.html">Français</option>
+  <option value="ja/products.html">日本語</option>
+  <option value="pt/products.html">Português</option>
+  <option value="ru/products.html">Русский</option>
+</select>
   </div>
 </header>
 
@@ -885,7 +876,7 @@
   </div>
 </footer>
 
-  <div id="google_translate_element" style="display:none;"></div>
+  
   <script src="js/main.js"></script>
 </body>
 </html>
