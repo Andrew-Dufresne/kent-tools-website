@@ -1049,17 +1049,6 @@ h4 { font-size: 1.15rem; font-weight: 600; }
   line-height: 1.6;
 }
 
-/* Move the Google banner frame off-screen instead of display:none */
-body > .skiptranslate[style] {
-  top: -1000px !important;
-  display: block !important;
-}
-
-/* The translate widget container (hidden, we use our own dropdown) */
-
-
-/* Prevent layout shift from Google's body padding */
-
 /* ============================================================
    RTL SUPPORT (Arabic)
    ============================================================ */
