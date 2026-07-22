@@ -162,17 +162,34 @@ def update_css():
 
 
 def update_js():
-    """Update main.js: remove Google Translate code."""
+    """Update main.js: remove any Google Translate remnants.
+
+    SAFE: if no GT code is present, the file is left untouched (no write).
+    A safety guard prevents a catastrophic shrink — which previously wiped
+    the whole file to 1 byte because the GT regex matched across the entire
+    script in DOTALL mode.
+    """
     js_path = SRC / "js" / "main.js"
-    js = js_path.read_text(encoding="utf-8")
+    original = js_path.read_text(encoding="utf-8")
+    if "initTranslate" not in original and "google" not in original.lower():
+        print("  js/main.js: clean, left untouched")
+        return
+    js = original
     # Remove initTranslate() call
     js = js.replace("  // --- Google Translate: hook custom dropdown to gadget ---\n  initTranslate();\n", "")
     # Remove initTranslate function (comment block + function body up to its top-level closing brace)
     js = re.sub(
         r"/\*.*?Google Translate.*?\*/\s*function initTranslate\(\)\s*\{.*?\n\}",
         "", js, flags=re.DOTALL)
-    js_path.write_text(js, encoding="utf-8")
-    print("  Updated js/main.js (removed GT code)")
+    # Safety guard: never let processing shrink the script catastrophically.
+    if len(js) < 0.5 * len(original):
+        print("  WARNING: update_js produced a drastically smaller JS; keeping original.")
+        js = original
+    if js != original:
+        js_path.write_text(js, encoding="utf-8")
+        print("  Updated js/main.js (removed GT code)")
+    else:
+        print("  js/main.js: no GT code to remove")
 
 
 def build():
