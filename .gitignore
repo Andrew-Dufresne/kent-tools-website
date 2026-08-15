@@ -23,3 +23,13 @@ build/
 # Temporary files
 *.tmp
 *.temp
+
+# Translation build working files (intermediate artifacts, not site source)
+_batch_*.json
+_merge_*.py
+_fix_original.py
+_proofread_*.py
+_keys_dump.txt
+_keys_readable.txt
+_ordered_keys.json
+_proof_sample.txt

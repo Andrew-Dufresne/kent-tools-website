@@ -5,7 +5,7 @@ from pathlib import Path
 
 SRC = Path(r"C:\Users\AMD\WorkBuddy\Kent Tools")
 PAGES = ["index.html", "products.html", "about.html", "contact.html"]
-NON_EN = ["ar", "de", "es", "fr", "ja", "pt", "ru"]
+NON_EN = ["ar", "de", "es", "fa", "fr", "hi", "ja", "ko", "ms", "pt", "ru", "th", "tr", "vi"]
 ALL = ["en"] + NON_EN
 T = json.load(open(SRC / "_translations.json", encoding="utf-8"))
 
@@ -28,9 +28,9 @@ for lang in NON_EN:
             issues.append(f"[MISSING] {lang}/{page}"); continue
         txt = p.read_text(encoding="utf-8")
         has = 'dir="rtl"' in txt
-        if lang == "ar" and not has:
-            issues.append(f"[RTL] ar missing dir=rtl: {page}")
-        if lang != "ar" and has:
+        if lang in {"ar", "fa"} and not has:
+            issues.append(f"[RTL] {lang} missing dir=rtl: {page}")
+        if lang not in {"ar", "fa"} and has:
             issues.append(f"[RTL] {lang} unexpected dir=rtl: {page}")
 
 # 3. Asset path prefixes
@@ -55,8 +55,8 @@ for lang in ALL:
         if not m:
             issues.append(f"[SWITCH] {lang}/{page}: no lang-switcher"); continue
         opts = re.findall(r'<option value="([^"]+)"', m.group(1))
-        if len(opts) != 8:
-            issues.append(f"[SWITCH] {lang}/{page}: expected 8 options, got {len(opts)}")
+        if len(opts) != 15:
+            issues.append(f"[SWITCH] {lang}/{page}: expected 15 options, got {len(opts)}")
         for url in opts:
             target = (base/url).resolve()
             if not (target.exists() and target.is_file()):
@@ -85,6 +85,11 @@ ACCEPTED = {
     "fr": {"Menu", "Contact", "Portable", "Construction", "Applications",
            "Certifications", "Message *", "FAQ"},
     "pt": {"Menu", "Motor", "Display", "Material"},
+    "ms": {"Menu", "Model", "Motor", "Diameter"},
+    "tr": {"Model", "Motor"},
+    "fa": set(),
+    "vi": set(),
+    "hi": set(),
 }
 leak_report = {}
 for page in PAGES:
