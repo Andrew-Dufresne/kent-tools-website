@@ -1,49 +1,64 @@
-# Kent Tools - Deploy to GitHub Pages
+# Kent Tools — Deploy to GitHub Pages
 
-## Quick Deploy (5 minutes)
+## 仓库与部署现状（务必先看）
 
-### 1. Create a GitHub Repository
-1. Go to https://github.com/new
-2. Repository name: `kent-tools` (or any name)
-3. Make it **Public** (required for free GitHub Pages)
-4. Do NOT initialize with README
+- 本目录 `Kent Tools/` **就是**站点的 git 仓库，远程为
+  `https://github.com/Andrew-Dufresne/kent-tools-website.git`，分支 `main`。
+- GitHub Pages 已配置为 **Deploy from a branch → main → /(root)**，推送后自动构建上线。
+- 根目录的 `CNAME` 已绑定自定义域名 **`kent-tools.com`**，线上地址即 https://kent-tools.com （无需再配 DNS）。
+- ⚠️ **不要再去推 `power-tools-site/`**：那是另一份 2026-06 的谷歌翻译旧副本，与线上站点无关。真正的部署源只有本目录 `Kent Tools/`。
 
-### 2. Push the Site
+## 日常部署流程（仓库已初始化，无需 git init）
+
 ```bash
-cd power-tools-site
-git init
-git add .
-git commit -m "Initial commit - Kent Tools foreign trade site"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/kent-tools.git
-git push -u origin main
+cd "Kent Tools"
+python _build.py     # 用 _translations.json 重新生成 15 语 × 4 页（60 个 HTML）
+python _verify.py    # 审计：0 结构问题 / 0 漏译 才算通过
+git add -A
+git commit -m "描述本次改动"
+git push origin main # 触发 GitHub Pages 自动部署，约 1–3 分钟上线
 ```
 
-### 3. Enable GitHub Pages
-1. Go to your repo → Settings → Pages
-2. Source: **Deploy from a branch**
-3. Branch: `main` → `/ (root)` → Save
-4. Your site will be live at `https://YOUR-USERNAME.github.io/kent-tools/`
+## 翻译工作文件（已被 .gitignore 排除，请勿手动 add）
 
-### 4. Custom Domain (Optional)
-1. Add a `CNAME` file with your domain
-2. In your DNS provider, add a CNAME record pointing to `YOUR-USERNAME.github.io`
-3. Enable "Enforce HTTPS" in GitHub Pages settings
+以下为翻译流程的中间产物，**不会进入仓库**：
+`_batch_*.json`、`_merge_*.py`、`_fix_original.py`、`_proofread_*.py`、
+`_keys_dump.txt`、`_keys_readable.txt`、`_ordered_keys.json`、`_proof_sample.txt`。
 
-## Site Structure
+源文件（需提交）：`_build.py`、`_translations.json`、`_verify.py`。
+
+## 新增 / 修改语言
+
+1. 编辑 `_translations.json`（每个键需含 `en` + 14 个非英语译文，缺一不可）。
+2. 在 `_build.py` 的 `NON_EN` / `LANG_NAMES` / `ARIA_LABELS` 登记新语言；RTL 语言（如 ar、fa）须加入 `RTL` 集合。
+3. 同步更新 `_verify.py` 的 `NON_EN`、下拉选项期望值、RTL 检查、借词白名单。
+4. 跑 `_build.py` → `_verify.py` → 提交推送。
+
+> 语言下拉顺序：English 默认置顶，其余按**英文名称首字母**排列（非 ISO 代码）。马来语显示名为 `Melayu`。
+
+## Site Structure（实际）
+
 ```
-power-tools-site/
-├── index.html          # Home page — hero, categories, featured products
-├── products.html       # 9 rebar tools with full specs tables
-├── about.html          # Company story, values, certifications
-├── contact.html        # Inquiry form + WhatsApp + FAQ
-├── css/style.css       # All styles (industrial blue+orange theme)
-├── js/main.js          # Nav, form, animations
-├── images/             # Product images from aytotech.com
-└── DEPLOY.md           # This file
+Kent Tools/
+├── index.html          # 英文首页（hero / 分类 / 精选产品）
+├── products.html       # 9 款钢筋工具，含完整参数表
+├── about.html          # 公司故事 / 价值观 / 认证
+├── contact.html        # 询盘表单 + WhatsApp + FAQ
+├── ar/ de/ es/ fr/ ja/ pt/ ru/   # 原有 7 语子目录（各 4 页）
+├── ko/ th/ ms/ tr/                # 韩语 / 泰语 / 马来语 / 土耳其语
+├── fa/ hi/ vi/                    # 波斯语(RTL) / 印地语 / 越南语
+├── css/style.css       # 工业蓝+橙主题样式
+├── js/main.js          # 导航 / 表单 / 动画
+├── images/             # 产品图（来自 aytotech.com）
+├── CNAME               # 自定义域名 kent-tools.com
+├── _build.py           # 构建脚本（英文模板 + 字典 → 各语言静态页）
+├── _translations.json  # 翻译字典（355 键 × 15 语）
+├── _verify.py          # 构建后审计脚本
+└── DEPLOY.md           # 本文件
 ```
 
 ## Product Catalog (9 Items)
+
 | # | Product | Models |
 |---|---------|--------|
 | 1 | Rebar Tying Tool | RT460, RT660 |
@@ -69,6 +84,3 @@ power-tools-site/
 
 ### Factory Image
 Replace the SVG placeholder in `about.html` (`.about-image-placeholder`) with a real factory photo.
-
-## CloudStudio Preview
-https://33af6e5fed9b4c5588d5306ae12520e5.app.codebuddy.work
