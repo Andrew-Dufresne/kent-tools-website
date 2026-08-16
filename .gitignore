@@ -33,3 +33,4 @@ _keys_dump.txt
 _keys_readable.txt
 _ordered_keys.json
 _proof_sample.txt
+_gen_batch*.py

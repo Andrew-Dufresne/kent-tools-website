@@ -5,7 +5,7 @@ from pathlib import Path
 
 SRC = Path(r"C:\Users\AMD\WorkBuddy\Kent Tools")
 PAGES = ["index.html", "products.html", "about.html", "contact.html"]
-NON_EN = ["ar", "de", "es", "fa", "fr", "hi", "ja", "ko", "ms", "pt", "ru", "th", "tr", "vi"]
+NON_EN = ["ar", "nl", "fr", "de", "el", "hi", "it", "ja", "ko", "ms", "fa", "pl", "pt", "ru", "sr", "es", "sv", "th", "tr", "vi"]
 ALL = ["en"] + NON_EN
 T = json.load(open(SRC / "_translations.json", encoding="utf-8"))
 
@@ -55,8 +55,8 @@ for lang in ALL:
         if not m:
             issues.append(f"[SWITCH] {lang}/{page}: no lang-switcher"); continue
         opts = re.findall(r'<option value="([^"]+)"', m.group(1))
-        if len(opts) != 15:
-            issues.append(f"[SWITCH] {lang}/{page}: expected 15 options, got {len(opts)}")
+        if len(opts) != 21:
+            issues.append(f"[SWITCH] {lang}/{page}: expected 21 options, got {len(opts)}")
         for url in opts:
             target = (base/url).resolve()
             if not (target.exists() and target.is_file()):
@@ -90,6 +90,12 @@ ACCEPTED = {
     "fa": set(),
     "vi": set(),
     "hi": set(),
+    "it": {"Home", "Menu", "Display", "Email", "FAQ"},
+    "nl": {"Home", "Menu", "Contact", "Model", "Motor", "Display", "Diameter", "FAQ"},
+    "pl": {"Menu", "Model", "System", "FAQ"},
+    "el": {"Email", "FAQ"},
+    "sv": {"Motor", "Display", "System", "Material", "Diameter", "FAQ"},
+    "sr": {"Model", "Motor", "FAQ"},
 }
 leak_report = {}
 for page in PAGES:

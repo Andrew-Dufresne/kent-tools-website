@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Kent Tools Multilingual Build Script
-Generates 15 languages x 4 pages = 60 HTML files.
+Generates 21 languages total (en + 20), 84 HTML files.
 English is root (default language). Other languages in subdirectories, ordered by
-English name: ar(Arabic), de(German), es(Spanish), fr(French), fa(Persian), hi(Hindi),
-ja(Japanese), ko(Korean), ms(Malay), pt(Portuguese), ru(Russian), th(Thai), tr(Turkish),
-vi(Vietnamese).
+English name: ar(Arabic), nl(Dutch), fr(French), de(German), el(Greek), hi(Hindi),
+it(Italian), ja(Japanese), ko(Korean), ms(Malay), fa(Persian), pl(Polish), pt(Portuguese),
+ru(Russian), sr(Serbian), es(Spanish), sv(Swedish), th(Thai), tr(Turkish), vi(Vietnamese).
 """
 
 import json
@@ -14,13 +14,13 @@ from pathlib import Path
 
 SRC = Path(r"C:\Users\AMD\WorkBuddy\Kent Tools")
 PAGES = ["index.html", "products.html", "about.html", "contact.html"]
-NON_EN = ["ar", "de", "es", "fr", "fa", "hi", "ja", "ko", "ms", "pt", "ru", "th", "tr", "vi"]
+NON_EN = ["ar", "nl", "fr", "de", "el", "hi", "it", "ja", "ko", "ms", "fa", "pl", "pt", "ru", "sr", "es", "sv", "th", "tr", "vi"]
 ALL_LANGS = ["en"] + NON_EN
 
 LANG_NAMES = {
     "en": "English", "ar": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
     "de": "Deutsch", "es": "Espa\u00f1ol", "fr": "Fran\u00e7ais",
-    "ja": "\u65e5\u672c\u8a9e", "pt": "Portugu\u00eas", "ru": "\u0420\u0443\u0441\u0441\u043a\u0438\u0439", "ko": "\ud55c\uad6d\uc5b4", "th": "\u0e44\u0e17\u0e22", "ms": "Melayu", "tr": "T\u00fcrk\u00e7e", "fa": "\u0641\u0627\u0631\u0633\u06cc", "hi": "\u0939\u093f\u0928\u094d\u0926\u0940", "vi": "Ti\u1ebfng Vi\u1ec7t",
+    "ja": "\u65e5\u672c\u8a9e", "pt": "Portugu\u00eas", "ru": "\u0420\u0443\u0441\u0441\u043a\u0438\u0439", "ko": "\ud55c\uad6d\uc5b4", "th": "\u0e44\u0e17\u0e22", "ms": "Melayu", "tr": "T\u00fcrk\u00e7e", "fa": "\u0641\u0627\u0631\u0633\u06cc", "hi": "\u0939\u093f\u0928\u094d\u0926\u0940", "vi": "Ti\u1ebfng Vi\u1ec7t", "it": "Italiano", "nl": "Nederlands", "pl": "Polski", "el": "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac", "sv": "Svenska", "sr": "Srpski",
 }
 RTL = {"ar", "fa"}
 
@@ -32,7 +32,7 @@ ARIA_LABELS = {
     "fr": "Choisir la langue",
     "ja": "\u8a00\u8a9e\u3092\u9078\u629e",
     "pt": "Selecionar idioma",
-    "ru": "\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u044f\u0437\u044b\u043a", "ko": "\uc5b8\uc5b4 \uc120\ud0dd", "th": "\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e32\u0e27\u0e17\u0e35\u0e48", "ms": "Pilih bahasa", "tr": "Dil se\u00e7in", "fa": "\u0627\u0646\u062a\u062e\u0627\u0628\u0020\u0632\u0628\u0627\u0646", "hi": "\u092d\u093e\u0937\u093e\u0020\u091a\u0941\u0928\u0947\u0902", "vi": "Ch\u1ecdn ng\u00f4n ng\u1eef",
+    "ru": "\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u044f\u0437\u044b\u043a", "ko": "\uc5b8\uc5b4 \uc120\ud0dd", "th": "\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e32\u0e27\u0e17\u0e35\u0e48", "ms": "Pilih bahasa", "tr": "Dil se\u00e7in", "fa": "\u0627\u0646\u062a\u062e\u0627\u0628\u0020\u0632\u0628\u0627\u0646", "hi": "\u092d\u093e\u0937\u093e\u0020\u091a\u0941\u0928\u0947\u0902", "vi": "Ch\u1ecdn ng\u00f4n ng\u1eef", "it": "Scegli lingua", "nl": "Kies taal", "pl": "Wybierz j\u0119zyk", "el": "\u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03b3\u03bb\u03ce\u03c3\u03c3\u03b1", "sv": "V\u00e4lj spr\u00e5k", "sr": "Izaberite jezik",
 }
 
 
