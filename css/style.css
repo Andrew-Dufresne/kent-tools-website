@@ -302,21 +302,14 @@ h4 { font-size: 1.15rem; font-weight: 600; }
   width: 100%;
   max-width: 500px;
   aspect-ratio: 4/3;
-  background: rgba(255,255,255,0.08);
-  border: 2px solid rgba(255,255,255,0.15);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
 }
-.hero-icon-group {
-  display: flex;
-  gap: 20px;
-  color: rgba(255,255,255,0.4);
-}
-.hero-icon-group svg { width: 48px; height: 48px; }
 
 /* ============================================================
    STATS BAR
@@ -521,14 +514,14 @@ h4 { font-size: 1.15rem; font-weight: 600; }
 }
 .about-image-placeholder {
   aspect-ratio: 4/3;
-  background: var(--gray-100);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gray-400);
 }
-.about-image-placeholder svg { width: 100px; height: 100px; opacity: 0.4; }
 .about-text h2 { margin-bottom: 16px; }
 .about-text p { margin-bottom: 16px; color: var(--gray-600); line-height: 1.9; }
 
