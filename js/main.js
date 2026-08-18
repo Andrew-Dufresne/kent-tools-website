@@ -25,6 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
   fadeEls.forEach(el => observer.observe(el));
 
+  // --- Header Shadow on Scroll ---
+  const headerEl = document.querySelector('.header');
+  if (headerEl) {
+    const onScroll = () => headerEl.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   // --- Active Nav Highlight ---
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav a').forEach(link => {

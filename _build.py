@@ -66,6 +66,7 @@ def adjust_paths(html, lang):
     html = html.replace('href="css/', 'href="../css/')
     html = html.replace('src="js/', 'src="../js/')
     html = html.replace('src="images/', 'src="../images/')
+    html = html.replace('href="favicon.svg"', 'href="../favicon.svg"')
     return html
 
 
