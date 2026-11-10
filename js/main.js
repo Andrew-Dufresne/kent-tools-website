@@ -92,6 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.body.insertAdjacentHTML('beforeend', floatingHTML);
 
+  // --- Visitor info: public IP, approximate region, local clock ---
+  initVisitorInfo();
+
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -238,5 +241,129 @@ function initCarousels() {
       nextBtn.style.display = 'none';
     }
   });
+}
+
+
+/* ============================================================
+   Visitor info — public IP, approximate region, local clock
+   Injected into the footer, shared by all 21 languages.
+   No translation dictionary needed: the browser localizes both
+   the clock format and the region name via the page's lang attribute.
+   ============================================================ */
+function initVisitorInfo() {
+  const footerBar = document.querySelector('.footer .footer-bottom');
+  if (!footerBar || document.querySelector('.visitor-info')) return;
+
+  const panel = document.createElement('div');
+  panel.className = 'visitor-info';
+  panel.setAttribute('title', 'Approximate region is derived from your public IP address; a VPN or proxy may change it.');
+  panel.innerHTML =
+    '<span class="vi-item"><span class="vi-dot"></span>IP <b data-vi="ip">…</b></span>' +
+    '<span class="vi-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg><b data-vi="region">…</b></span>' +
+    '<span class="vi-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b data-vi="clock">--:--:--</b></span>';
+  footerBar.parentNode.appendChild(panel);
+
+  const ipEl = panel.querySelector('[data-vi="ip"]');
+  const regionEl = panel.querySelector('[data-vi="region"]');
+  const clockEl = panel.querySelector('[data-vi="clock"]');
+
+  // Clock: the visitor's own locale and time zone, no external dependency.
+  const lang = document.documentElement.lang || 'en';
+  let fmt;
+  try {
+    fmt = new Intl.DateTimeFormat(lang, {
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+    });
+  } catch (e) {
+    fmt = new Intl.DateTimeFormat('en-GB', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+    });
+  }
+  const tick = () => { clockEl.textContent = fmt.format(new Date()); };
+  tick();
+  setInterval(tick, 1000);
+
+  // Region names are localized by Intl.DisplayNames.
+  // Hong Kong, Macao and Taiwan must always appear as parts of China.
+  const fixedRegions = { TW: 'Taiwan, China', HK: 'Hong Kong, China', MO: 'Macao, China' };
+  const fixedNames = {
+    taiwan: 'Taiwan, China',
+    'hong kong': 'Hong Kong, China',
+    macao: 'Macao, China',
+    macau: 'Macao, China'
+  };
+  let regionNames = null;
+  try { regionNames = new Intl.DisplayNames([lang], { type: 'region' }); } catch (e) { /* unsupported */ }
+
+  function regionLabel(code, name) {
+    const c = String(code || '').toUpperCase();
+    if (fixedRegions[c]) return fixedRegions[c];
+    const n = String(name || '').toLowerCase();
+    for (const key in fixedNames) {
+      if (n.indexOf(key) !== -1) return fixedNames[key];
+    }
+    if (c && regionNames) {
+      try { return regionNames.of(c) || name || c; } catch (e) { /* invalid code */ }
+    }
+    return name || c || '—';
+  }
+
+  async function getJSON(url, ms) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), ms || 6000);
+    try {
+      const res = await fetch(url, { signal: ctrl.signal, cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return await res.json();
+    } finally { clearTimeout(timer); }
+  }
+
+  async function getText(url, ms) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), ms || 6000);
+    try {
+      const res = await fetch(url, { signal: ctrl.signal, cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return await res.text();
+    } finally { clearTimeout(timer); }
+  }
+
+  function apply(ip, code, name) {
+    if (ip) ipEl.textContent = ip;
+    if (code || name) regionEl.textContent = regionLabel(code, name);
+  }
+
+  (async () => {
+    // Primary: one request returns IP + country code + country name.
+    try {
+      const d = await getJSON('https://ipwho.is/');
+      if (d && d.ip) { apply(d.ip, d.country_code, d.country); return; }
+    } catch (e) { /* fall through to backup */ }
+
+    // Fallback: IP from one service, region code from another. Both optional.
+    const ipRes = getJSON('https://api.ipify.org?format=json');
+    const traceRes = getText('https://www.cloudflare.com/cdn-cgi/trace');
+    let ip = '', code = '';
+    try { const d = await ipRes; ip = d.ip || ''; } catch (e) { /* ignore */ }
+    try {
+      const body = await traceRes;
+      body.split('\n').forEach(line => {
+        const p = line.indexOf('=');
+        if (p < 0) return;
+        const k = line.slice(0, p), v = line.slice(p + 1);
+        if (k === 'ip' && !ip) ip = v;
+        if (k === 'loc') code = v;
+      });
+    } catch (e) { /* ignore */ }
+
+    if (ip || code) {
+      apply(ip || '—', code, '');
+      if (!code) regionEl.textContent = '—';
+    } else {
+      ipEl.textContent = '—';
+      regionEl.textContent = '—';
+    }
+  })();
 }
 

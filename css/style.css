@@ -1093,3 +1093,57 @@ h4 { font-size: 1.15rem; font-weight: 600; }
 
 .carousel-slide img { transition: transform 0.6s ease; }
 .product-detail:hover .carousel-slide img { transform: scale(1.06); }
+
+/* ============================================================
+   VISITOR INFO — public IP, approximate region, local clock
+   Injected by js/main.js into the footer of every language page.
+   ============================================================ */
+.visitor-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  line-height: 1.5;
+}
+.visitor-info .vi-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+.visitor-info b {
+  font-weight: 500;
+  color: var(--gray-200);
+  font-variant-numeric: tabular-nums;
+}
+.visitor-info svg { width: 14px; height: 14px; flex: none; opacity: 0.75; }
+.vi-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex: none;
+}
+[dir="rtl"] .visitor-info { direction: rtl; }
+/* IPs and timestamps stay left-to-right even on Arabic / Persian pages. */
+.visitor-info b[data-vi="ip"],
+.visitor-info b[data-vi="clock"] { direction: ltr; unicode-bidi: isolate; }
+
+/* Mobile: keep the footer row readable and clear of the fixed contact buttons. */
+@media (max-width: 768px) {
+  .visitor-info { gap: 6px 12px; font-size: 0.75rem; }
+}
+@media (max-width: 480px) {
+  /* Reserve the right edge for the fixed WhatsApp / mail buttons. */
+  .visitor-info { gap: 5px 12px; font-size: 0.72rem; padding-right: 56px; }
+  [dir="rtl"] .visitor-info { padding-right: 0; padding-left: 56px; }
+  .visitor-info .vi-item { min-width: 0; max-width: 100%; }
+  /* Long IPv6 addresses must wrap instead of forcing horizontal scroll. */
+  .visitor-info .vi-item:first-child { white-space: normal; }
+  .visitor-info b { overflow-wrap: anywhere; }
+}
